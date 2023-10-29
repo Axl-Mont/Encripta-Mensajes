@@ -1,6 +1,6 @@
 import getpass
 
-rules = {
+encrypt_rules = {
     'A': '4',
     'E': '3',
     'I': '1',
@@ -12,20 +12,39 @@ rules = {
     'B': '8',
     ',': '^',
     '.': '*',
-    '0': 'O',
     '?': '#',
-    '1': 'L'
 }
 
-encript_text = ''
 
-text_input =(getpass.getpass('Ingresa una frase para encriptarla => ')).upper()
+decrypt_rules = {value: key for key, value in encrypt_rules.items()}
 
-for letter in text_input:
-    if letter in rules:
-        encript_text += rules.get(letter)
-    else:
-        encript_text += letter
+print(encrypt_rules)
+print(decrypt_rules)
 
-print('Frace encriptada =>')
-print(encript_text[::-1])
+def encrypt():
+    text_input = (getpass.getpass('Ingresa un mensaje para encriptarlo => ')).upper()
+
+    final_text = ''
+
+    for letter in text_input:
+        if letter in encrypt_rules:
+            final_text += encrypt_rules[letter]
+        else:
+            final_text += letter
+
+    print('Mensaje encriptado =>')
+    print(final_text)
+
+def decrypt():
+    text_input = input('Ingresa un mensaje para desencriptarlo => ').upper()
+
+    final_text = ''
+
+    for letter in text_input:
+        if letter in decrypt_rules:
+            final_text += decrypt_rules[letter]
+        else:
+            final_text += letter
+
+    print('Mensaje desencriptado =>')
+    print(final_text)
