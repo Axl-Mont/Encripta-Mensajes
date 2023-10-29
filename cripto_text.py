@@ -18,11 +18,10 @@ encrypt_rules = {
 
 decrypt_rules = {value: key for key, value in encrypt_rules.items()}
 
-print(encrypt_rules)
-print(decrypt_rules)
+option = ('1','2','3')
 
 def encrypt():
-    text_input = (getpass.getpass('Ingresa un mensaje para encriptarlo => ')).upper()
+    text_input = (getpass.getpass('\nIngresa un mensaje para encriptarlo => ')).upper()
 
     final_text = ''
 
@@ -33,10 +32,10 @@ def encrypt():
             final_text += letter
 
     print('Mensaje encriptado =>')
-    print(final_text)
+    print(final_text[::-1])
 
 def decrypt():
-    text_input = input('Ingresa un mensaje para desencriptarlo => ').upper()
+    text_input = input('\nIngresa un mensaje para desencriptarlo => ').upper()
 
     final_text = ''
 
@@ -47,4 +46,25 @@ def decrypt():
             final_text += letter
 
     print('Mensaje desencriptado =>')
-    print(final_text)
+    print(final_text[::-1])
+
+def main():
+    print('Bienvenido a tu encriptador de confianza, por favor elije una opcion')
+
+    while True:
+        choice_user = input('\n1_ Encriptar \n2_ Desencriptar \n3_ Salir\n==>')
+
+        if not choice_user in option:
+            print('\nIngresa una opcion correcta')
+
+        if choice_user in option:
+            if choice_user == '1':
+                encrypt()
+            elif choice_user == '2':
+                decrypt()
+            else:
+                print('\nHasta la proxima!!!')
+                break
+
+main()
+input()
