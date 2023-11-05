@@ -53,9 +53,6 @@ encrypt_rules = {
 
 decrypt_rules = {value: key for key, value in encrypt_rules.items()}
 
-# Opciones de menú
-option = ('1','2','3')
-
 def encrypt():
     """
         Función que encripta un mensaje ingresado por el usuario.
@@ -64,24 +61,19 @@ def encrypt():
         lo encripta utilizando las reglas de cifrado definidas en `encrypt_rules`.
         Imprime el mensaje encriptado.
 
-        Parámetros:
-        Ninguno.
-
-        Retorna:
-        Ninguno.
     """
-    text_input = (getpass.getpass('\nIngresa un mensaje para encriptarlo => ')).upper()
+    text_input = (getpass.getpass('\nIngresa un mensaje para encriptarlo \n=> ')).upper()
 
-    final_text = ''
+    encrypted_message = ''
 
     for letter in text_input:
         if letter in encrypt_rules:
-            final_text += encrypt_rules[letter]
+            encrypted_message += encrypt_rules[letter]
         else:
-            final_text += letter
+            encrypted_message += letter
 
     print('Mensaje encriptado =>')
-    print(final_text[::-1])
+    print(encrypted_message[::-1])
 
 def decrypt():
     """
@@ -97,18 +89,18 @@ def decrypt():
         Retorna:
         Ninguno.
     """
-    text_input = input('\nIngresa un mensaje para desencriptarlo => ').upper()
+    text_input = input('\nIngresa un mensaje para desencriptarlo \n=> ').upper()
 
-    final_text = ''
+    dencrypted_message = ''
 
-    for letter in text_input:
-        if letter in decrypt_rules:
-            final_text += decrypt_rules[letter]
+    for character in text_input:
+        if character in decrypt_rules:
+            dencrypted_message += decrypt_rules[character]
         else:
-            final_text += letter
+            dencrypted_message += character
 
     print('Mensaje desencriptado =>')
-    print(final_text[::-1])
+    print(dencrypted_message[::-1])
 
 def main():
     """
@@ -125,6 +117,8 @@ def main():
         Ninguno.
     """
     print('Bienvenido a tu encriptador de confianza, por favor elije una opcion')
+
+    option = ('1','2','3')
 
     while True:
         choice_user = input('\n1_ Encriptar \n2_ Desencriptar \n3_ Salir\n==>')

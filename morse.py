@@ -1,5 +1,3 @@
-#Esta es una vacion de 
-
 """
     Diccionario de traducción Morse.
 
