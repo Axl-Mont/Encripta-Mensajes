@@ -68,7 +68,7 @@ def encrypt():
 
     for letter in text_input:
         if letter in encrypt_rules:
-            encrypted_message += encrypt_rules[letter]
+            encrypted_message += encrypt_rules.get(letter)
         else:
             encrypted_message += letter
 
@@ -82,12 +82,6 @@ def decrypt():
         Esta función solicita al usuario un mensaje encriptado, 
         lo desencripta utilizando las reglas de descifrado definidas en `decrypt_rules`.
         Imprime el mensaje desencriptado.
-
-        Parámetros:
-        Ninguno.
-
-        Retorna:
-        Ninguno.
     """
     text_input = input('\nIngresa un mensaje para desencriptarlo \n=> ').upper()
 
@@ -95,7 +89,7 @@ def decrypt():
 
     for character in text_input:
         if character in decrypt_rules:
-            dencrypted_message += decrypt_rules[character]
+            dencrypted_message += decrypt_rules.get(character)
         else:
             dencrypted_message += character
 
@@ -109,12 +103,6 @@ def main():
         Muestra un menú al usuario que permite seleccionar entre tres opciones:
         1 encriptar, 2 desencriptar o 3 salir.
         El usuario ingresa su elección y se ejecuta la función correspondiente.
-
-        Parámetros:
-        Ninguno.
-
-        Retorna:
-        Ninguno.
     """
     print('Bienvenido a tu encriptador de confianza, por favor elije una opcion')
 
